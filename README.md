@@ -1,200 +1,142 @@
-```{=html}
-<p align="center">
-```
-`<img src="assets/kryx-logo.png" alt="KRYX — Autonomous Coding Agent" width="360">`{=html}
-```{=html}
-</p>
-```
-```{=html}
-<h1 align="center">
-```
-KRYX
-```{=html}
-</h1>
-```
-```{=html}
-<p align="center">
-```
-`<strong>`{=html}Sense the code. Shape the
-outcome.`</strong>`{=html}`<br>`{=html} An autonomous coding agent for
-your terminal.
-```{=html}
-</p>
-```
-```{=html}
-<p align="center">
-```
-`<a href="https://pypi.org/project/kryx/">`{=html}`<img src="https://img.shields.io/pypi/v/kryx?label=PyPI" alt="PyPI version">`{=html}`</a>`{=html}
-`<a href="https://pypi.org/project/kryx/">`{=html}`<img src="https://img.shields.io/pypi/pyversions/kryx" alt="Python versions">`{=html}`</a>`{=html}
-`<a href="LICENSE">`{=html}`<img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License">`{=html}`</a>`{=html}
-```{=html}
-</p>
-```
+![KRYX — Autonomous Coding Agent](assets/kryx-logo.png)
 
-------------------------------------------------------------------------
+# KRYX
+
+**Sense the code. Shape the outcome.**
+
+An autonomous coding agent for your terminal.
+
+[![PyPI version](https://img.shields.io/pypi/v/kryx?label=PyPI)](https://pypi.org/project/kryx/)
+[![Python versions](https://img.shields.io/pypi/pyversions/kryx)](https://pypi.org/project/kryx/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+---
 
 ## Overview
 
-**KRYX** is a terminal-based AI coding agent designed to bring
-AI-assisted development into your command line. Choose a supported model
-provider, configure your model, and give KRYX a prompt from your
-terminal.
+**KRYX** brings AI-assisted coding into your terminal. Choose a supported model provider, select a model, and send a prompt directly from the command line.
 
 ## Features
 
--   **Terminal-first workflow** --- work from your command line.
--   **Multiple provider options** --- OpenAI, OpenRouter, Gemini/Google,
-    and Anthropic.
--   **Model selection** --- specify the model you want to use.
--   **Prompt from the command line** --- pass a task directly as an
-    argument.
--   **Optional save flag** --- use `--save` when you want to save a run
-    or result, according to the CLI's supported behavior.
+- **Terminal-first workflow** — work from your command line.
+- **Multiple provider options** — OpenAI, OpenRouter, Gemini/Google, and Anthropic.
+- **Model selection** — specify which model to use.
+- **Direct prompts** — pass a task or question as a command-line argument.
+- **Optional save flag** — use `--save` for the CLI's save functionality.
 
 ## Requirements
 
--   Python **3.12 or newer**
--   An API key for the provider you choose
+- Python **3.12 or newer**
+- An API key for the provider you choose
 
 ## Installation
 
 Install KRYX from PyPI:
 
-``` bash
+```bash
 python -m pip install kryx
 ```
 
-Check that the command is available:
+Check the available options:
 
-``` bash
+```bash
 kryx --help
 ```
 
-> If your machine has multiple Python versions installed, make sure
-> `pip` belongs to Python 3.12 or newer. You can also install with
-> `python3.12 -m pip install kryx` where that command is available.
+> If you have multiple Python versions installed, make sure `pip` belongs to Python 3.12 or newer.
 
 ## Quick start
 
-See the available options:
+Ask KRYX a question:
 
-``` bash
-kryx --help
-```
-
-A basic prompt:
-
-``` bash
+```bash
 kryx "Explain the structure of this project"
 ```
 
-Select a provider and model:
+Choose a provider and model:
 
-``` bash
+```bash
 kryx --provider openai --model MODEL_NAME "Review this code"
 ```
 
-KRYX's CLI supports these provider choices:
+Supported provider choices:
 
--   `openai`
--   `openrouter`
--   `gemini`
--   `google`
--   `anthropic`
+- `openai`
+- `openrouter`
+- `gemini`
+- `google`
+- `anthropic`
 
 Replace `MODEL_NAME` with a model supported by your selected provider.
 
 ### API keys
 
-Pass a key with the CLI option when needed:
+You can pass an API key using the CLI option:
 
-``` bash
-kryx --provider openai --api-key YOUR_API_KEY --model MODEL_NAME "Help me understand this function"
+```bash
+kryx --provider openai --api-key YOUR_API_KEY --model MODEL_NAME "Explain this function"
 ```
 
-**Security note:** Avoid putting real API keys directly into shell
-history, screenshots, logs, or source control. Prefer a secure
-environment variable or configuration mechanism if supported by your
-setup.
+**Security note:** Avoid putting real API keys in shell history, screenshots, logs, or source control. Never commit API keys or `.env` files.
 
 ## Command-line options
 
-  -----------------------------------------------------------------------
-  Option                              Description
-  ----------------------------------- -----------------------------------
-  `--help`                            Show the help message and exit.
+| Option | Description |
+| --- | --- |
+| `--help` | Show the help message and exit. |
+| `--provider` | Choose a provider: `openai`, `openrouter`, `gemini`, `google`, or `anthropic`. |
+| `--model` | Select the model to use. |
+| `--api-key` | Provide the provider API key. |
+| `--save` | Enable the CLI's save option. |
+| `prompt` | The task or question to send to KRYX. |
 
-  `--provider`                        Choose a provider: `openai`,
-                                      `openrouter`, `gemini`, `google`,
-                                      or `anthropic`.
-
-  `--model`                           Select the model to use.
-
-  `--api-key`                         Provide the provider API key.
-
-  `--save`                            Enable the CLI's save option.
-
-  `prompt`                            The task or question to send to
-                                      KRYX.
-  -----------------------------------------------------------------------
-
-Run `kryx --help` for the options available in your installed version.
+Run `kryx --help` to see the options available in your installed version.
 
 ## Development
 
-Clone the repository and enter the project directory:
+Clone your repository and enter the project directory:
 
-``` bash
+```bash
 git clone YOUR_REPOSITORY_URL
 cd YOUR_REPOSITORY_DIRECTORY
 ```
 
-Create and activate a virtual environment, then install the project in
-editable mode:
+Create a virtual environment:
 
-``` bash
+```bash
 python -m venv .venv
 ```
 
-Windows PowerShell:
+On Windows PowerShell:
 
-``` powershell
+```powershell
 .\.venv\Scripts\Activate.ps1
 python -m pip install -e .
 ```
 
-macOS/Linux:
+On macOS/Linux:
 
-``` bash
+```bash
 source .venv/bin/activate
 python -m pip install -e .
 ```
 
-Build a release distribution:
+Build and validate a release:
 
-``` bash
+```bash
 python -m pip install build twine
 python -m build
 python -m twine check dist/*
 ```
 
-The generated `dist/` and `build/` directories are build artifacts; they
-generally do not need to be committed to Git.
+The `dist/` and `build/` directories contain generated artifacts and generally should not be committed to Git.
 
 ## Contributing
 
-Bug reports, ideas, and pull requests are welcome. When reporting an
-issue, include your Python version, operating system, the command you
-ran, and the relevant error output. **Never include API keys, access
-tokens, or other secrets.**
+Bug reports, feature ideas, and pull requests are welcome. When reporting an issue, include your Python version, operating system, the command you ran, and the relevant error output. Do not include secrets or API keys.
 
 
-------------------------------------------------------------------------
 
-```{=html}
-<p align="center">
-```
-`<sub>`{=html} KRYX · Autonomous Coding Agent `</sub>`{=html}
-```{=html}
-</p>
-```
+---
+
+*KRYX · Autonomous Coding Agent*
