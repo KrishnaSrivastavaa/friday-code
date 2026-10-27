@@ -1,8 +1,8 @@
 import subprocess
 
-from src.my_agent.tools.base import tool
+from my_agent.tools.base import tool
 
-from src.my_agent.tools._common import truncate, workspace_root
+from my_agent.tools._common import truncate, workspace_root
 
 DEFAULT_TIMEOUT_SECONDS = 60
 MAX_TIMEOUT_SECONDS = 300

@@ -6,8 +6,8 @@ import os
 
 from openai import OpenAI
 
-from src.my_agent.config.settings import settings
-from src.my_agent.models.provider import get_client
+from my_agent.config.settings import settings
+from my_agent.models.provider import get_client
 
 
 def test_get_client_constructs_openai_client():

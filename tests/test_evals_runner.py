@@ -6,7 +6,7 @@ import types
 
 from evals import run_evals
 from evals.tasks import TASKS_BY_NAME
-from src.my_agent.tools import _common
+from my_agent.tools import _common
 from tests.helpers import ScriptedClient, fake_response, tool_call
 
 

@@ -9,10 +9,10 @@ from argparse import Namespace
 import pytest
 from rich.console import Console
 
-from src.my_agent import cli
-from src.my_agent.agent import AgentResult
-from src.my_agent.events import AssistantEvent, ToolCallEvent, ToolResultEvent
-from src.my_agent.messages import AssistantMessage, ToolMessage, UserMessage
+from my_agent import cli
+from my_agent.agent import AgentResult
+from my_agent.events import AssistantEvent, ToolCallEvent, ToolResultEvent
+from my_agent.messages import AssistantMessage, ToolMessage, UserMessage
 from tests.helpers import ScriptedClient, assistant
 
 
@@ -161,7 +161,7 @@ def test_run_turn_streams_and_updates_history(capture_console, workspace):
                 messages=[
                     AssistantMessage(
                         content="",
-                        tool_calls=[__import__("src.my_agent.messages", fromlist=["ToolCall"]).ToolCall(id="c1", name="list_files", arguments={"path": "."})],
+                        tool_calls=[__import__("my_agent.messages", fromlist=["ToolCall"]).ToolCall(id="c1", name="list_files", arguments={"path": "."})],
                     ),
                     ToolMessage(tool_call_id="c1", content="a.py", name="list_files"),
                     AssistantMessage(content="done"),

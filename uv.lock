@@ -43,47 +43,6 @@ wheels = [
 ]
 
 [[package]]
-name = "backend"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "fastapi" },
-    { name = "ipython" },
-    { name = "openai" },
-    { name = "pydantic" },
-    { name = "pydantic-settings" },
-    { name = "rich" },
-    { name = "sqlalchemy" },
-    { name = "sqlmodel" },
-    { name = "supabase" },
-    { name = "tiktoken" },
-    { name = "uvicorn" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "pytest" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "fastapi", specifier = ">=0.141.1" },
-    { name = "ipython", specifier = ">=9.17.1" },
-    { name = "openai", specifier = ">=3.37.0" },
-    { name = "pydantic", specifier = ">=2.13.5" },
-    { name = "pydantic-settings", specifier = ">=2.15.0" },
-    { name = "rich", specifier = ">=15.0.0" },
-    { name = "sqlalchemy", specifier = ">=2.0.53" },
-    { name = "sqlmodel", specifier = ">=0.0.42" },
-    { name = "supabase", specifier = ">=2.31.0" },
-    { name = "tiktoken", specifier = ">=0.14.0" },
-    { name = "uvicorn", specifier = ">=0.53.0" },
-]
-
-[package.metadata.requires-dev]
-dev = [{ name = "pytest", specifier = ">=9.1.1" }]
-
-[[package]]
 name = "certifi"
 version = "2026.7.22"
 source = { registry = "https://pypi.org/simple" }
@@ -737,6 +696,47 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/ce/80/f0dadedaa9a109f31e8978c7db355593916968d5956f382188a3f8c0888c/jiter-0.18.0-graalpy312-graalpy250_312_native-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4d1d2dc4d930ebc225f488b6b3790acebb2e51b3a165a4a42cc1d05bb927f83e", size = 300192, upload-time = "2026-10-23T13:51:10.551Z" },
     { url = "https://files.pythonhosted.org/packages/93/51/e57dbc6c264ec6557a677189755fe4525d83439237418e3ae59771ac1cde/jiter-0.18.0-graalpy312-graalpy250_312_native-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ebb0c346b6c5d9c033fe9e9b6ed6a1ff6dac0288fe681c3434dde6eb9c264fa1", size = 301141, upload-time = "2026-10-23T13:51:11.882Z" },
 ]
+
+[[package]]
+name = "kryx"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "fastapi" },
+    { name = "ipython" },
+    { name = "openai" },
+    { name = "pydantic" },
+    { name = "pydantic-settings" },
+    { name = "rich" },
+    { name = "sqlalchemy" },
+    { name = "sqlmodel" },
+    { name = "supabase" },
+    { name = "tiktoken" },
+    { name = "uvicorn" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "pytest" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi", specifier = ">=0.141.1" },
+    { name = "ipython", specifier = ">=9.17.1" },
+    { name = "openai", specifier = ">=3.37.0" },
+    { name = "pydantic", specifier = ">=2.13.5" },
+    { name = "pydantic-settings", specifier = ">=2.15.0" },
+    { name = "rich", specifier = ">=15.0.0" },
+    { name = "sqlalchemy", specifier = ">=2.0.53" },
+    { name = "sqlmodel", specifier = ">=0.0.42" },
+    { name = "supabase", specifier = ">=2.31.0" },
+    { name = "tiktoken", specifier = ">=0.14.0" },
+    { name = "uvicorn", specifier = ">=0.53.0" },
+]
+
+[package.metadata.requires-dev]
+dev = [{ name = "pytest", specifier = ">=9.1.1" }]
 
 [[package]]
 name = "markdown-it-py"

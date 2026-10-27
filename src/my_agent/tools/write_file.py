@@ -1,6 +1,6 @@
-from src.my_agent.tools.base import tool
+from my_agent.tools.base import tool
 
-from src.my_agent.tools._common import relative_to_workspace, resolve_in_workspace
+from my_agent.tools._common import relative_to_workspace, resolve_in_workspace
 
 
 @tool

@@ -6,7 +6,7 @@ import json
 from types import SimpleNamespace
 from typing import Any
 
-from src.my_agent.messages import AssistantMessage, ToolCall
+from my_agent.messages import AssistantMessage, ToolCall
 
 
 def tool_call(name: str, args: dict[str, Any] | None = None, call_id: str = "call_1") -> ToolCall:

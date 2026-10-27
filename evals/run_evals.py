@@ -24,11 +24,11 @@ from rich.console import Console
 from rich.table import Table
 
 from evals.tasks import TASKS, TASKS_BY_NAME
-from src.my_agent.agent import Agent, run
-from src.my_agent.config.settings import settings
-from src.my_agent.messages import ToolMessage
-from src.my_agent.models.provider import get_client
-from src.my_agent.tools import _common
+from my_agent.agent import Agent, run
+from my_agent.config.settings import settings
+from my_agent.messages import ToolMessage
+from my_agent.models.provider import get_client
+from my_agent.tools import _common
 
 DEFAULT_EVAL_MODEL = "gpt-4o-mini"
 

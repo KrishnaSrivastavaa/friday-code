@@ -14,10 +14,10 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass, field
 
-from src.my_agent.config.settings import settings
-from src.my_agent.events import AgentEvent, AssistantEvent, ToolCallEvent, ToolResultEvent
-from src.my_agent.memory import DEFAULT_MAX_CONTEXT_TOKENS, count_message_tokens, count_tokens, get_store
-from src.my_agent.messages import (
+from my_agent.config.settings import settings
+from my_agent.events import AgentEvent, AssistantEvent, ToolCallEvent, ToolResultEvent
+from my_agent.memory import DEFAULT_MAX_CONTEXT_TOKENS, count_message_tokens, count_tokens, get_store
+from my_agent.messages import (
     AssistantMessage,
     Message,
     SystemMessage,
@@ -28,8 +28,8 @@ from src.my_agent.messages import (
     from_openai,
     to_openai,
 )
-from src.my_agent.tools import CODING_TOOLS
-from src.my_agent.tools._common import workspace_root
+from my_agent.tools import CODING_TOOLS
+from my_agent.tools._common import workspace_root
 
 # Stop the tool loop after this many model turns, even if the model keeps asking
 # for more tools. This prevents runaway loops on hard or impossible tasks.
@@ -124,7 +124,7 @@ class Agent:
         every model call. Only the messages it produces during this call are
         returned in ``result.messages`` and can be extended onto ``messages``.
 
-        ``on_event`` receives :class:`~src.my_agent.events.AgentEvent` objects
+        ``on_event`` receives :class:`~my_agent.events.AgentEvent` objects
         as the loop progresses (handy for streaming UIs).
         """
         conversation: list[Message] = list(messages)
@@ -146,7 +146,7 @@ class Agent:
         # Save new user messages to memory
         if self.use_memory and self.store and self.conversation_id:
             for msg in messages:
-                from src.my_agent.messages import UserMessage
+                from my_agent.messages import UserMessage
 
                 if isinstance(msg, UserMessage):
                     self.store.save_message(self.conversation_id, msg)
@@ -287,7 +287,7 @@ class Agent:
 def build_agent(client=None, **kwargs) -> Agent:
     """Build an Agent. If no client is provided, one is created from settings."""
     if client is None:
-        from src.my_agent.models.provider import get_client
+        from my_agent.models.provider import get_client
 
         client = get_client()
     return Agent(client, **kwargs)

@@ -2,12 +2,12 @@
 
 Run it with:
 
-    uv run python -m src.my_agent.cli
+    uv run python -m my_agent.cli
 
 On first launch it asks for the provider, model and API key, builds the agent
 with them, then drops into a chat loop. One-shot mode is also supported:
 
-    uv run python -m src.my_agent.cli "list the python files in this project"
+    uv run python -m my_agent.cli "list the python files in this project"
 """
 
 from __future__ import annotations
@@ -26,14 +26,14 @@ from rich.panel import Panel
 from rich.table import Table
 from rich.text import Text
 
-from src.my_agent.agent import Agent, build_agent
-from src.my_agent.config.global_config import get_stored_key, load_global_config, save_global_config, save_stored_key
-from src.my_agent.config.settings import settings
-from src.my_agent.events import AssistantEvent, ToolCallEvent, ToolResultEvent
-from src.my_agent.messages import UserMessage
-from src.my_agent.models.provider import get_client, get_model
-from src.my_agent.tools import CODING_TOOLS
-from src.my_agent.tools._common import workspace_root
+from my_agent.agent import Agent, build_agent
+from my_agent.config.global_config import get_stored_key, load_global_config, save_global_config, save_stored_key
+from my_agent.config.settings import settings
+from my_agent.events import AssistantEvent, ToolCallEvent, ToolResultEvent
+from my_agent.messages import UserMessage
+from my_agent.models.provider import get_client, get_model
+from my_agent.tools import CODING_TOOLS
+from my_agent.tools._common import workspace_root
 
 APP_NAME = "KRYX"
 TAGLINE = "AUTONOMOUS CODING AGENT"
@@ -459,7 +459,7 @@ def run_turn(agent, history: list, user_text: str) -> None:
         status.start()
 
     try:
-        from src.my_agent.tools._common import workspace_root
+        from my_agent.tools._common import workspace_root
 
         result = agent.run(history, on_event=on_event, workspace=str(workspace_root()))
         history.extend(result.messages)
@@ -533,7 +533,7 @@ def handle_command(command: str, history: list, provider: str, model_name: str, 
             new_model = " ".join(parts[1:])
             agent.model_name = new_model
             try:
-                from src.my_agent.config.global_config import load_global_config, save_global_config
+                from my_agent.config.global_config import load_global_config, save_global_config
 
                 cfg = load_global_config()
                 cfg["model_name"] = new_model
@@ -563,8 +563,8 @@ def handle_command(command: str, history: list, provider: str, model_name: str, 
             console.print("[red]Cannot switch provider in this context[/red]")
             return "ok", provider, model_name
         try:
-            from src.my_agent.config.global_config import get_stored_key, load_global_config, save_global_config, save_stored_key
-            from src.my_agent.models.provider import get_client
+            from my_agent.config.global_config import get_stored_key, load_global_config, save_global_config, save_stored_key
+            from my_agent.models.provider import get_client
 
             global_cfg = load_global_config()
             api_key = get_stored_key(new_provider)
@@ -622,7 +622,7 @@ def handle_command(command: str, history: list, provider: str, model_name: str, 
         console.print(f"  {workspace_root()}")
     elif name == "/memory":
         try:
-            from src.my_agent.memory import get_store
+            from my_agent.memory import get_store
 
             store = get_store()
             convs = store.list_conversations(workspace_root())

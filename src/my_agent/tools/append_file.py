@@ -1,8 +1,8 @@
 """Append content to a file."""
 from __future__ import annotations
 
-from src.my_agent.tools._common import relative_to_workspace, resolve_in_workspace
-from src.my_agent.tools.base import tool
+from my_agent.tools._common import relative_to_workspace, resolve_in_workspace
+from my_agent.tools.base import tool
 
 
 @tool

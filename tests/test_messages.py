@@ -6,7 +6,7 @@ import json
 
 from types import SimpleNamespace
 
-from src.my_agent.messages import (
+from my_agent.messages import (
     AssistantMessage,
     SystemMessage,
     ToolCall,

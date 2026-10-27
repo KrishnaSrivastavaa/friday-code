@@ -1,4 +1,4 @@
-"""Tests for every file/shell tool in ``src.my_agent.tools``.
+"""Tests for every file/shell tool in ``my_agent.tools``.
 
 Each tool is exercised through its LangChain ``.invoke`` surface (schema
 validation + execution) against a real temporary workspace.
@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import sys
 
-from src.my_agent.tools import (
+from my_agent.tools import (
     edit_file,
     glob_files,
     list_files,
@@ -17,7 +17,7 @@ from src.my_agent.tools import (
     search_files,
     write_file,
 )
-from src.my_agent.tools._common import MAX_RESULTS
+from my_agent.tools._common import MAX_RESULTS
 
 # --------------------------------------------------------------------------- #
 # list_files

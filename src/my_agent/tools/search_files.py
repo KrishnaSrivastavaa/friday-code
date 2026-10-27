@@ -1,8 +1,8 @@
 import re
 
-from src.my_agent.tools.base import tool
+from my_agent.tools.base import tool
 
-from src.my_agent.tools._common import (
+from my_agent.tools._common import (
     MAX_RESULTS,
     iter_files,
     relative_to_workspace,

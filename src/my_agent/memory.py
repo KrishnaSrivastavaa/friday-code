@@ -17,15 +17,15 @@ from typing import Any
 
 import tiktoken
 
-from src.my_agent.config.settings import settings
-from src.my_agent.messages import (
+from my_agent.config.settings import settings
+from my_agent.messages import (
     AssistantMessage,
     Message,
     ToolCall,
     ToolMessage,
     UserMessage,
 )
-from src.my_agent.tools._common import workspace_root
+from my_agent.tools._common import workspace_root
 
 
 # Default max tokens before summarization (conservative for gpt-4o)

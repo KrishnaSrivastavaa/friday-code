@@ -4,7 +4,7 @@ import os
 
 from openai import OpenAI
 
-from src.my_agent.config.settings import settings
+from my_agent.config.settings import settings
 
 
 def get_client(

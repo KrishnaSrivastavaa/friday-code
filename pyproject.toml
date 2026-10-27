@@ -1,9 +1,15 @@
+
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "backend"
+name = "kryx"
 version = "0.1.0"
-description = "Add your description here"
+description = "A terminal-based AI coding agent"
 readme = "README.md"
 requires-python = ">=3.12"
+license = "MIT"
 dependencies = [
     "fastapi>=0.141.1",
     "ipython>=9.17.1",
@@ -18,15 +24,20 @@ dependencies = [
     "uvicorn>=0.53.0",
 ]
 
+[project.scripts]
+kryx = "my_agent.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
 [dependency-groups]
-dev = [
-    "pytest>=9.1.1",
-]
+dev = ["pytest>=9.1.1"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
 addopts = "-q"
-markers = [
-    "eval: end-to-end evaluation that calls the LLM (opt-in)",
-]
+markers = ["eval: end-to-end evaluation that calls the LLM (opt-in)"]
