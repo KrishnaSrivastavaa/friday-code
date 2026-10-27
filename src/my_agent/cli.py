@@ -1,4 +1,4 @@
-"""FRIDAY - the terminal coding agent CLI.
+"""KRYX - the terminal coding agent CLI.
 
 Run it with:
 
@@ -35,7 +35,7 @@ from src.my_agent.models.provider import get_client, get_model
 from src.my_agent.tools import CODING_TOOLS
 from src.my_agent.tools._common import workspace_root
 
-APP_NAME = "FRIDAY"
+APP_NAME = "KRYX"
 TAGLINE = "AUTONOMOUS CODING AGENT"
 VERSION = "0.1"
 
@@ -314,24 +314,20 @@ def configure(args: argparse.Namespace) -> tuple[str, str, str]:
 # Rendering
 # --------------------------------------------------------------------------- #
 def render_logo():
-    """Render FRIDAY as a custom pixel-grid wordmark using Rich only."""
+    """Render KRYX as a custom pixel-grid wordmark using Rich only."""
     # The glyphs are deliberately defined as individual pixel patterns rather
     # than loading an image or relying on a system font.
     glyphs = {
-        "F": ("11111", "10000", "10000", "11110", "10000", "10000", "10000"),
+        "K": ("10001", "10010", "10100", "11000", "10100", "10010", "10001"),
         "R": ("11110", "10001", "10001", "11110", "10100", "10010", "10001"),
-        "I": ("111", "010", "010", "010", "010", "010", "111"),
-        "D": ("11110", "10001", "10001", "10001", "10001", "10001", "11110"),
-        "A": ("01110", "10001", "10001", "11111", "10001", "10001", "10001"),
         "Y": ("10001", "10001", "01010", "00100", "00100", "00100", "00100"),
+        "X": ("10001", "10001", "01010", "00100", "01010", "10001", "10001"),
     }
     colors = {
-        "F": "#7C8796",
+        "K": "#7C8796",
         "R": "#A7B1BF",
-        "I": "#C6D0DD",
-        "D": "#E7EDF5",
-        "A": "#E7EDF5",
-        "Y": "#55BDFF",
+        "Y": "#C6D0DD",
+        "X": "#55BDFF",
     }
     # Draw each pixel with a full block. A 5x7 grid keeps the wordmark
     # shorter than the previous version while preserving its proportions.
@@ -341,7 +337,7 @@ def render_logo():
     rendered_rows = []
     for row_index in range(7):
         row = Text()
-        for letter_index, letter in enumerate("FRIDAY"):
+        for letter_index, letter in enumerate("KRYX"):
             pattern = glyphs[letter]
             if letter_index:
                 row.append(" ")
@@ -666,7 +662,7 @@ def _make_prompt_session():
     history_path = Path.home() / ".pypilot_history"
     try:
         return PromptSession(
-            message=HTML("<prompt>◈ FRIDAY ❯ </prompt>"),
+            message=HTML("<prompt>◈ KRYX ❯ </prompt>"),
             completer=WordCompleter(COMMANDS, ignore_case=True),
             history=FileHistory(str(history_path)),
             style=style,
@@ -687,7 +683,7 @@ def repl(agent, provider: str, model_name: str) -> None:
             if session is not None:
                 line = session.prompt()
             else:
-                line = input("FRIDAY > ")
+                line = input("KRYX > ")
         except (EOFError, KeyboardInterrupt):
             console.print()
             break
@@ -706,7 +702,7 @@ def repl(agent, provider: str, model_name: str) -> None:
             continue
         run_turn(agent, history, line)
 
-    console.print("[#91A8C2]bye from FRIDAY[/#91A8C2]")
+    console.print("[#91A8C2]bye from KRYX[/#91A8C2]")
 
 
 # --------------------------------------------------------------------------- #
@@ -714,8 +710,8 @@ def repl(agent, provider: str, model_name: str) -> None:
 # --------------------------------------------------------------------------- #
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(
-        prog="friday",
-        description="FRIDAY - an autonomous terminal coding agent powered by the OpenAI SDK.",
+        prog="kryx",
+        description="KRYX - an autonomous terminal coding agent powered by the OpenAI SDK.",
     )
     parser.add_argument("prompt", nargs="*", help="Run a single task and exit.")
     parser.add_argument(
